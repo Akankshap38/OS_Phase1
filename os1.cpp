@@ -75,19 +75,11 @@ void readFun()
 			k=0;
 		}
 	}
-	for(int i=0; i<=99; i++)
-   	{
-     		cout<<"   mem["<<i<<"]= ";
-    		 for(k=0;k<4;k++)
-       			cout<<mem[i][k];
-      		cout<<endl;
-  	}
 }
 
 //****************** PUT DATA*******************************
 void writeFun()
-{       cout<<"hi"<<endl;
-	cout<<"Value of num in writfun:"<<num<<endl;
+{ 
 	ir[3]='0';
 	cout<<"Inside write function"<<endl;
 	if(wfcount!=0)
@@ -109,7 +101,6 @@ void writeFun()
 		for(j=0; j<4;j++,k++)
 		{
 			Tbuff[k]=mem[i][j];
-			cout<<Tbuff[k]<<"  "<<mem[i][j]<<endl;
 		}
 	}
 
@@ -117,13 +108,10 @@ void writeFun()
 	for(int i=39;i>=0;i--)
 	{
 		if(Tbuff[i]!=' ')
-		{	cout<<Tbuff[i]<<" ";
-		pos=i;
+		{       pos=i;
 			break;
 		}
 	}
-         cout<<"hello  "<<endl;
-	cout<<" Pos: "<<pos;
 	k=0;
         cout<<" writing: ";
 	for(int i=num; k<=pos;i++,k++)
@@ -131,8 +119,6 @@ void writeFun()
 
 		for(j=0;j<4;j++,k++)
 		{
-			cout<<mem[i][j];
-
 			fout<<mem[i][j];
 		}
 
@@ -211,11 +197,6 @@ void exeUserProgram()
 
 		}
 		cout<<"\n Memory content after storing instruction"<<endl;
-    for(int i=0;i<100;i++)
-    {  cout<<"\n   mem["<<i<<"]= ";
-       for(int x=0;x<4;x++)
-       cout<<mem[i][x];
-    }
 	}
 	else if(ir[0]=='C' && ir[1]=='R')
     {
@@ -226,7 +207,6 @@ void exeUserProgram()
 			else
 				c=false;
 		}
-		cout<<endl<<"****c:"<<c<<endl;
 	}
 	else if(ir[0]=='B' && ir[1]=='T')
     {
@@ -251,8 +231,7 @@ void stexe()
 //*******************************load
 
 void load()
-{ cout<<"in load function"<<endl;
-
+{ 
 while(!fin.eof())
 {
   si=0;
@@ -286,18 +265,12 @@ for(int i=0; buff[i]!='\0'; i++)
 		j++;
 		k=0;
 	}
-
 }
 
   buffsize=j-1;
-  cout<<"  BUFFSIZE: "<<buffsize;
-    cout<<"\n Memory content after storing instruction"<<endl;
-    for(int i=0;i<100;i++)
-    {  cout<<"\n   mem["<<i<<"]= ";
-       for(int x=0;x<4;x++)
-       cout<<mem[i][x];
-    }
-  cout<<"mem[20]="<<mem[20][0]<<mem[20][1]<<mem[20][2]<<mem[20][2]<<endl;
+//   cout<<"  BUFFSIZE: "<<buffsize;
+//     cout<<"\n Memory content after storing instruction"<<endl;
+//   cout<<"mem[20]="<<mem[20][0]<<mem[20][1]<<mem[20][2]<<mem[20][2]<<endl;
 }
 else if(buff[0]=='$' && buff[1] == 'D' && buff[2] == 'T' && buff[3] == 'A')
 	stexe();
